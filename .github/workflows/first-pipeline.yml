@@ -1,0 +1,13 @@
+name: Meu primeiro workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  primeiro_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World
+        run: echo "Hello World Pipeline"
+      - name: Quit
+        run: echo "Finalizado"
