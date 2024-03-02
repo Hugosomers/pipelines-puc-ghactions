@@ -1,0 +1,21 @@
+name: Workflow de testes
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  unit-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 ## adiciona o código dentro do ambiente criado
+      - name: Usar Node na última versão
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Instalar dependências
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Rodar testes unitários
+        run: npm run test
